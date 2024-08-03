@@ -1,0 +1,15 @@
+services:
+    app:
+        container_name: laravel
+        build:
+            dockerfile: ./Dockerfile
+        volumes:
+            - /var/www/html/vendor
+            - .:/var/www/html
+        networks:
+            - laravel-swoole
+        ports:
+            - "8080:80"
+networks:
+    laravel-swoole:
+        driver: bridge
