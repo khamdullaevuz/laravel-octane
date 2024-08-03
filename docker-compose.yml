@@ -10,6 +10,15 @@ services:
             - swoole
         ports:
             - "8080:80"
+    postgres:
+        container_name: postgres
+        image: postgres:12
+        environment:
+            POSTGRES_USER: root
+            POSTGRES_PASSWORD: root
+            POSTGRES_DB: swoole
+        networks:
+            - swoole
 networks:
     swoole:
         driver: bridge

@@ -15,8 +15,8 @@ class PostFactory extends Factory
         return [
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                'title'      => $this->faker->word(),
-                'content'    => $this->faker->word(),
+                'title'      => $this->faker->paragraph(2),
+                'content'    => $this->faker->realText(100),
         ];
     }
 }

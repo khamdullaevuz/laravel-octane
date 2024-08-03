@@ -1,6 +1,6 @@
 FROM openswoole/swoole:4.12.1-php8.2
 
-RUN docker-php-ext-install pcntl
+RUN docker-php-ext-install pcntl pdo_pgsql
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
