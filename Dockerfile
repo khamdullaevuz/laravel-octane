@@ -6,6 +6,8 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 
 COPY --from=composer:2.4 /usr/bin/composer /usr/bin/composer
 
+WORKDIR /var/www/html
+
 COPY . .
 
 RUN composer install
@@ -21,6 +23,8 @@ COPY ./nginx.conf /etc/nginx/sites-available/default
 RUN apt-get update && apt-get install -y supervisor
 
 COPY ./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+RUN php artisan octane:install --server=swoole
 
 EXPOSE 80
 
