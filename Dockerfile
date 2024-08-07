@@ -1,4 +1,4 @@
-FROM openswoole/swoole:4.12.1-php8.2
+FROM phpswoole/swoole:5.1-php8.3
 
 RUN docker-php-ext-install pcntl pdo_pgsql
 
